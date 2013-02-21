@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GiftRegistry</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <div id="container">
+        <div id="masthead">
+            <h1>Bee Registered</h1>
+        </div>
+        <div id="content">
+        <%= yield %>
+        </div>
+        <div id="footer">
+            <p>All Rights Are Mine</p>
+        </div>
+    </div>
+</body>
+</html>
