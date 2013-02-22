@@ -8,6 +8,7 @@ gem 'rails', '3.2.12'
 gem 'sqlite3'
 
 
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -36,3 +37,8 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use debugger
 # gem 'debugger'
+
+group :test do
+    gem 'cucumber-rails', :require=>false
+    gem 'database_cleaner'
+end
