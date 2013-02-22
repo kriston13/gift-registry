@@ -1,3 +1,9 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :enabled, :failures, :firstname, :lastlogin, :lastname, :password, :salt
+  has_secure_password
+  
+  attr_accessible :email, :firstname, :lastname, :password, :password_confirmation
+  
+  validates_uniqueness_of :email
+  validates_presence_of :firstname
+  
 end

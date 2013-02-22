@@ -9,10 +9,17 @@
 <body>
     <div id="container">
         <div id="masthead">
-            <h1>Bee Registered</h1>
+            <h1><%= link_to "Bee Registered", root_url %></h1>
+            <div id="login_logout">
+                <%= render "shared/login_logout"%>
+            </div>
         </div>
         <div id="content">
-        <%= yield %>
+            <% flash.each do |name,msg| %>
+                <%= content_tag :div, msg, id: "flash_#{name}" %>
+            <% end %>
+            
+            <%= yield %>
         </div>
         <div id="footer">
             <p>All Rights Are Mine</p>

@@ -17,13 +17,12 @@ ActiveRecord::Schema.define(:version => 20130221212604) do
     t.string   "firstname"
     t.string   "lastname"
     t.string   "email"
-    t.string   "password"
-    t.string   "salt"
+    t.string   "password_digest"
     t.boolean  "enabled"
     t.datetime "lastlogin"
     t.integer  "attempts"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
 end

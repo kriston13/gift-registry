@@ -13,11 +13,39 @@
  */
 
 body {
-	background:#fff;
+	background:#ddd;
+}
+
+#masthead {
+	position:relative;
 }
 
 #container {
+	background:#fff;
 	width:1024px;
 	margin: 0 auto;
 	border: 1px dotted black;
+	padding: 5px 10px;
+}
+
+#login_logout {
+	position:absolute;
+	right:0px;
+	top:0px;
+	text-align:right;
+}
+
+#flash_notice {
+	padding: 2px 5px;
+	background: #3c3;
+	border: 2px solid #093;
+}
+
+#footer {
+	
+}
+
+#footer p{
+	font-size:12px;
+	color: gray;
 }
