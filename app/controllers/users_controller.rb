@@ -14,4 +14,8 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    #TODO
+  end
+
 end

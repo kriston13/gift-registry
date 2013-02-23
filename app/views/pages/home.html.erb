@@ -13,7 +13,9 @@
         </li>
         <li>Create a <%= link_to "new user", signup_path %></li>
         <li>Search for a friend's registry</li>
-        <li>Create a registry</li>
+        <% if current_user %>
+            <li><%= link_to "Create a registry", new_user_registry_path(current_user) %></li>
+        <% end %>
         <li>Edit an existing registry</li>
     </ul>
     <h2><span>Have</span> fun!</h2>

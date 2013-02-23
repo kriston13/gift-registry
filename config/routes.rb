@@ -8,8 +8,13 @@ GiftRegistry::Application.routes.draw do
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
-  resources :users
+  resources :users do
+    resources :registries
+  end
+  
   resources :sessions
+
+  resources :registries
   
 
   # Sample of regular route:

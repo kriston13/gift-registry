@@ -63,3 +63,17 @@ When /^I login with "(.*?)"$/ do |arg1|
   fill_in 'Password', :with => 'passw0rd'
 end
 
+When /^I create a registry named "(.*?)"$/ do |registry_name|
+  visit(root_url)
+  find_link("Create a registry").click
+  within("#new_registry") do
+    fill_in 'Registry Name', :with => registry_name
+    fill_in 'Description', :with => registry_name
+    uncheck('Make Public')
+  end
+  click_button 'Create'
+end
+
+Then /^I see a "(.*?)" of "(.*?)"$/ do |html_attribute, text|
+  find(html_attribute).has_content?(text)
+end
