@@ -14,7 +14,7 @@ GiftRegistry::Application.routes.draw do
   
   resources :sessions
 
-  resources :registries
+  # resources :registries
   
 
   # Sample of regular route:

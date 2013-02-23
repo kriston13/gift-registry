@@ -1,5 +1,6 @@
 class RegistriesController < ApplicationController
-  before_filter :authorize, except: [:show]
+  before_filter :authorize, except: [:index, :show]
+  before_filter :current_user, :path_user, only: [:index, :show]
   #before_filter :find_current_user
   
   def new
@@ -20,8 +21,22 @@ class RegistriesController < ApplicationController
   def show
     logger.debug "LOADING SHOW-------"
     logger.debug "the registry id is: #{params[:id]}"
+    #@path_user = User.find_by_id(params[:user_id])
     @registry = Registry.find_by_id(params[:id])
     logger.debug "@registry is: #{@registry.name}"
+  end
+
+  def index
+    logger.debug "LOADING SHOW-------"
+    #logger.debug "the registry id is: #{params[:id]}"
+    if @current_user
+      logger.debug "current user is #{@current_user.id}"
+    else
+      logger.debug "no current user?"
+    end
+    #@path_user = User.find_by_id(params[:user_id])
+    @path_registries = @path_user.registries
+    
   end
 
   def update
@@ -29,10 +44,10 @@ class RegistriesController < ApplicationController
 
   def destroy
   end
-  
+
 private
-#def find_current_user
-#  @current_user=User.find_by_id(current_user.id)
-#end
+  def path_user
+    @path_user = User.find_by_id(params[:user_id])
+  end
 
 end

@@ -1,1 +1,6 @@
 <h2><%=@registry.name%></h2>
+<p><%= @registry.description %></p>
+
+<% if is_owner? %>
+    <span>Add an item to my registry</span>
+<% end %>
