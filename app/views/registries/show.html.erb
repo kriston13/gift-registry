@@ -1,6 +1,19 @@
 <h2><%=@registry.name%></h2>
 <p><%= @registry.description %></p>
 
+<ul id="registry_items_list">
+    <% @registry.registry_items.each do |item| %>
+    <li><div><%= item.name %> - <%= item.description %>
+        <% if is_owner? %><br />
+            <%= link_to "edit", edit_registry_registry_item_path(@registry, item) %>, <%= link_to "delete", registry_registry_item_path(@registry, item), :confirm => "Are you sure you want to delete #{item.name} from this registry?", :method => :delete %>
+        <% end %>
+    </div></li>
+    <% end %>
+        
+
 <% if is_owner? %>
-    <span>Add an item to my registry</span>
+    <span><%= link_to "Add an item to my registry", new_registry_registry_item_path(@registry) %></span>
 <% end %>
+
+
+<p><%= link_to "Return to #{(is_owner? ? owner_text.downcase : owner_text)} list of registries", user_registries_path(@path_user) %></p>

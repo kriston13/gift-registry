@@ -77,3 +77,15 @@ end
 Then /^I see a "(.*?)" of "(.*?)"$/ do |html_attribute, text|
   find(html_attribute).has_content?(text)
 end
+
+When /^I add an item to the registry$/ do
+  click_link 'Add an item to my registry'
+  within("#new_registry_item") do
+    fill_in 'Item Name', :with => "a present"
+    fill_in 'Description', :with => "something I want"
+    fill_in 'Price', :with => "10.00"
+  end
+  click_button 'Create'
+end
+
+

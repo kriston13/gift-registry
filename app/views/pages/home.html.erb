@@ -15,8 +15,9 @@
         <li>Search for a friend's registry</li>
         <% if current_user %>
             <li><%= link_to "Create a registry", new_user_registry_path(current_user) %></li>
+            <li><%= link_to "View my registries", user_registries_path(current_user)%></li>
+            <li>Edit an existing registry</li>
         <% end %>
-        <li>Edit an existing registry</li>
     </ul>
     <h2><span>Have</span> fun!</h2>
 </p>

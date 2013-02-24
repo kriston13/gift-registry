@@ -1,6 +1,12 @@
 <% logger.debug "path user's id'#{@path_user.id}"%>
 <h2><%= owner_text %> Registries</h2>
 <div id="registryList">
-
-
+    <ul>
+        <% @path_registries.each do |registry| %>
+            <li><%= link_to registry.name, registry_path(registry) %></li>
+        <% end %>
+        <% if is_owner? %>
+            <li><%= link_to 'Add a new registry', new_user_registry_path(@current_user) %></li>
+        <% end %>
+    </ul>
 </div>

@@ -1,0 +1,18 @@
+<h2>Add a new item to your <%= @registry.name %></h2>
+<%= form_for([@registry, @item]) do |f| %>
+    <% if @item.errors.any? %>
+    <div class="error_messages">
+        <h2>Form is invalid</h2>
+        <ul>
+            <% @item.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
+    <ul>
+        <li><%= f.label :name, "Name" %><%= f.text_field :name %></li>
+        <li><%= f.label :description, "Description" %><%= f.text_area :description %></li>
+    </ul>
+    <div class="actions"><%= f.submit "Add" %></div>
+<% end %>

@@ -1,0 +1,2 @@
+module ItemAttrsHelper
+end

@@ -1,5 +1,19 @@
 GiftRegistry::Application.routes.draw do
 
+  get "item_attrs/index"
+
+  get "item_attrs/show"
+
+  get "item_attrs/new"
+
+  get "item_attrs/create"
+
+  get "item_attrs/update"
+
+  get "item_attrs/edit"
+
+  get "item_attrs/destroy"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -9,7 +23,14 @@ GiftRegistry::Application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
   resources :users do
-    resources :registries
+    resources :registries, :except => :show
+    #resources :registries do
+    #  resources :registry_items
+    #end
+  end
+  
+  resources :registries, :only => :show do
+    resources :registry_items
   end
   
   resources :sessions

@@ -12,7 +12,7 @@ class RegistriesController < ApplicationController
   def create
     @registry = @current_user.registries.build(params[:registry])
     if @registry.save
-      redirect_to user_registry_path(@current_user,@registry), notice: "Registry created successfully!"
+      redirect_to registry_path(@registry), notice: "Registry created successfully!"
     else
       render "new"
     end
@@ -27,7 +27,7 @@ class RegistriesController < ApplicationController
   end
 
   def index
-    logger.debug "LOADING SHOW-------"
+    logger.debug "LOADING INDEX-------"
     #logger.debug "the registry id is: #{params[:id]}"
     if @current_user
       logger.debug "current user is #{@current_user.id}"
