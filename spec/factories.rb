@@ -10,5 +10,11 @@ FactoryGirl.define do
     owner
   end
   
+  factory :attr_name, :aliases => [:attr] do
+    sequence(:description) { |n| "Attribute Number #{n}" }
+    value_type "STRING"
+
+  end
+  
 end
 

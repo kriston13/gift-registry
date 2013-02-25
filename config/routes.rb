@@ -1,19 +1,5 @@
 GiftRegistry::Application.routes.draw do
 
-  get "item_attrs/index"
-
-  get "item_attrs/show"
-
-  get "item_attrs/new"
-
-  get "item_attrs/create"
-
-  get "item_attrs/update"
-
-  get "item_attrs/edit"
-
-  get "item_attrs/destroy"
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -33,6 +19,7 @@ GiftRegistry::Application.routes.draw do
     resources :registry_items
   end
   
+  resources :attr_names
   resources :sessions
 
   # resources :registries

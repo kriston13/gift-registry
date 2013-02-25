@@ -47,8 +47,19 @@ describe "Registries when there are more than 1 user viewing them" do
     click_button "Log In"
   end
   
-  it "works" do
-  
+  it "only allows the owner to see add registry item links" do
+    visit(registry_path(@registry))
+    page.should_not have_content("Add an item to my registry")
+    find("#login_logout").click_link "Logout"
+    page.should have_content("You've been logged out")
+    click_link "Log In"
+    fill_in "Email", :with =>@registry.owner.email
+    fill_in "Password", :with =>@registry.owner.password
+    click_button "Log In"
+    click_link "View my registries"
+    page.should have_content("Add a new registry")
+    page.should have_content(@registry.name)
+    
   end
   
   

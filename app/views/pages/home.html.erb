@@ -13,6 +13,7 @@
         </li>
         <li>Create a <%= link_to "new user", signup_path %></li>
         <li>Search for a friend's registry</li>
+        <li><%= link_to "Manage item attributes", attr_names_path %></li>
         <% if current_user %>
             <li><%= link_to "Create a registry", new_user_registry_path(current_user) %></li>
             <li><%= link_to "View my registries", user_registries_path(current_user)%></li>

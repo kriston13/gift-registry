@@ -1,0 +1,8 @@
+<h2>Manage Item Attributes</h2>
+<p>Here is a list of item attributes</p>
+<ul>
+    <% @attr_names.each do |attr_name| %>
+        <li><%= link_to attr_name.description, attr_name_path(attr_name) %> - <%= attr_name.value_type %></li>
+    <% end %>
+    <li><%= link_to "Add a new item attribute", new_attr_name_path %>
+</ul>

@@ -73,7 +73,7 @@ describe "Users" do
     visit root_path
     click_link "Sign Up"
     attrs = FactoryGirl.attributes_for(:user)
-    fill_in "Email", :with => "jack1@tester.com"
+    fill_in "Email", :with => "duplicate@tester.com"
     fill_in "First Name", :with => attrs[:firstname]
     fill_in "user_password", :with => attrs[:password]
     fill_in "user_password_confirmation", :with => attrs[:password]
@@ -84,7 +84,7 @@ describe "Users" do
     visit root_path
     click_link "Sign Up"
     newAttrs = FactoryGirl.attributes_for(:user)
-    fill_in "Email", :with => "jack1@tester.com"
+    fill_in "Email", :with => "duplicate@tester.com"
     fill_in "First Name", :with => newAttrs[:firstname]
     fill_in "user_password", :with => newAttrs[:password]
     fill_in "user_password_confirmation", :with => newAttrs[:password]

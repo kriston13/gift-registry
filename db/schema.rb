@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 20130224143458) do
 
   create_table "attr_names", :force => true do |t|
     t.string   "description"
-    t.string   "type"
+    t.string   "value_type"
     t.boolean  "link"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
