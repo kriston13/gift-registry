@@ -21,10 +21,18 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :development do
+    gem 'rb-fsevent', :require=>false if RUBY_PLATFORM =~ /darwin/i
+    #gem 'guard-cucumber'
+    gem 'rspec-rails', "~> 2.0"
+end
+
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
+
+#gem "factory_girl_rails", "~> 4.0"
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
@@ -39,6 +47,11 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # gem 'debugger'
 
 group :test do
-    gem 'cucumber-rails', :require=>false
+    gem 'rspec-rails', "~> 2.0"
+    gem 'capybara'
+    gem 'capybara-webkit'
+    gem 'factory_girl_rails', " ~> 4.0"
+    gem 'launchy'
     gem 'database_cleaner'
 end
+
