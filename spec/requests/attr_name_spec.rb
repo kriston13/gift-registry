@@ -18,6 +18,21 @@ describe 'Viewing all attributes' do
     page.should have_content("Attribute Number 1 - STRING")
   end
   
+  it "will add a new item attribute" do
+    visit(attr_names_path)
+    click_link "Add a new item attribute"
+    page.should have_content("Create a new attribute")
+    fill_in "Description", :with => "Price"
+    #save_and_open_page
+    select('Float', :from => 'attr_name_value_type')
+    #fill_in "Type", :with => "FLOAT"
+    #page.should have_css("#")
+    click_button "Create"
+    page.should have_content("Attribute Number 1 - STRING")
+    page.should have_content("Price - FLOAT")
+    page.should have_content("Successfully created a new attribute") 
+    save_and_open_page
+  end
   
   
 end

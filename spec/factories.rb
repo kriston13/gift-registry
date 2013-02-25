@@ -14,6 +14,9 @@ FactoryGirl.define do
     sequence(:description) { |n| "Attribute Number #{n}" }
     value_type "STRING"
 
+    factory :linkable_attr do
+      link "1"
+    end
   end
   
 end
