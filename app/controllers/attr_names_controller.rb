@@ -20,6 +20,17 @@ class AttrNamesController < ApplicationController
   def show
   end
 
-  def update
+  def edit
+    @attr_name = AttrName.find_by_id(params[:id])
   end
+
+  def update
+    @attr_name = AttrName.find_by_id(params[:id])
+    if @attr_name.update_attributes(params[:attr_name])
+      redirect_to attr_names_path, notice: "Attribute has been updated"
+    else
+      render 'edit'
+    end
+  end
+  
 end

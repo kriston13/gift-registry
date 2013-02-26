@@ -2,7 +2,8 @@
 <p>Here is a list of item attributes</p>
 <ul>
     <% @attr_names.each do |attr_name| %>
-        <li><%= link_to attr_name.description, attr_name_path(attr_name) %> - <%= attr_name.value_type %></li>
+        <li><%= attr_name.description %> - <%= attr_name.value_type %><br />
+            <%= link_to "Edit #{attr_name.description}", edit_attr_name_path(attr_name), :id=> "attr_name_#{attr_name.id}" %></li>
     <% end %>
     <li><%= link_to "Add a new item attribute", new_attr_name_path %>
 </ul>
