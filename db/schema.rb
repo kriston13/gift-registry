@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130224143458) do
+ActiveRecord::Schema.define(:version => 20130227125853) do
 
   create_table "attr_names", :force => true do |t|
     t.string   "description"
@@ -19,6 +19,19 @@ ActiveRecord::Schema.define(:version => 20130224143458) do
     t.boolean  "link"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "item_attr_vals", :force => true do |t|
+    t.integer  "registry_item_id"
+    t.integer  "attr_name_id"
+    t.string   "raw_value"
+    t.string   "string_val"
+    t.float    "float_val"
+    t.integer  "int_val"
+    t.boolean  "bool_val"
+    t.datetime "datetime_val"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "registries", :force => true do |t|
