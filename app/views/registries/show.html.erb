@@ -7,6 +7,13 @@
         <% if is_owner? %><br />
             <%= link_to "edit", edit_registry_registry_item_path(@registry, item) %>, <%= link_to "delete", registry_registry_item_path(@registry, item), :confirm => "Are you sure you want to delete #{item.name} from this registry?", :method => :delete %>
         <% end %>
+        <% if item_attr_vals = item.item_attr_vals %>
+            <ul>
+                <% item_attr_vals.each do |iav| %>
+                    <li><%= iav.attr_name.description %>: <%= iav.raw_value %></li>
+                <% end %>
+            </ul>
+        <% end %>       
     </div></li>
     <% end %>
         

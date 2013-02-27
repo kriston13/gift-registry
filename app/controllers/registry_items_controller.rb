@@ -6,6 +6,7 @@ class RegistryItemsController < ApplicationController
 
   def new
     @item = @registry.registry_items.build()
+    @item.item_attr_vals.build
   end
 
   def create

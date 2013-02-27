@@ -9,18 +9,22 @@ class ItemAttrVal < ActiveRecord::Base
   before_save :assign_value
   
   
+  #currently only works with dollar sign.
+  #might actually be unnecessary.
   def remove_dollar_sign
     if self.raw_value.start_with?("$")
       self.raw_value = self.raw_value[1,self.raw_value.length-1]
     end
   end
   
+  # gets the attribute's type, and then determines which of the columns to populate it with.
+  # the raw value is still stored for prosperity's sake
   def assign_value
     if attr_type = AttrName.find_by_id(self.attr_name_id).value_type
       case attr_type
       when "STRING"
         self.string_val = self.raw_value
-      when "FLOAT"
+      when "FLOAT"  #has a special case to remove the dollar symbol in front of it
         remove_dollar_sign
         self.float_val = self.raw_value.to_f
       when "DATETIME"
