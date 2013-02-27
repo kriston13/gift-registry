@@ -33,4 +33,10 @@ class AttrNamesController < ApplicationController
     end
   end
   
+  def destroy
+    @attr_name = AttrName.find_by_id(params[:id])
+    @attr_name.destroy
+    redirect_to attr_names_path, notice: "Attribute has been deleted"
+  end
+  
 end

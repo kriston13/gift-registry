@@ -22,9 +22,7 @@ group :assets do
 end
 
 group :development do
-    gem 'rb-fsevent', :require=>false if RUBY_PLATFORM =~ /darwin/i
-    #gem 'guard-cucumber'
-    gem 'rspec-rails', "~> 2.0"
+  gem 'rspec-rails', "~> 2.0"
 end
 
 gem 'jquery-rails'
@@ -52,6 +50,10 @@ group :test do
     gem 'capybara-webkit'
     gem 'factory_girl_rails', " ~> 4.0"
     gem 'launchy'
+    gem "guard-rspec"
     gem 'database_cleaner'
+    gem 'rb-fsevent', :require=>false if RUBY_PLATFORM =~ /darwin/i
+    gem 'terminal-notifier-guard'
+    gem 'guard-livereload'
 end
 

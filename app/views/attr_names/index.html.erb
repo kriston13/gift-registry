@@ -3,7 +3,8 @@
 <ul>
     <% @attr_names.each do |attr_name| %>
         <li><%= attr_name.description %> - <%= attr_name.value_type %><br />
-            <%= link_to "Edit #{attr_name.description}", edit_attr_name_path(attr_name), :id=> "attr_name_#{attr_name.id}" %></li>
+            <%= link_to "Edit", edit_attr_name_path(attr_name), :id=> "edit_attr_name_#{attr_name.id}" %> | 
+            <%= link_to "Delete", attr_name_path(attr_name), :method => :delete, :confirm =>"Are you sure you want to delete this attribute: #{attr_name.description}", :id =>"delete_attr_name_#{attr_name.id}" %></li>
     <% end %>
     <li><%= link_to "Add a new item attribute", new_attr_name_path %>
 </ul>

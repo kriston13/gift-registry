@@ -39,7 +39,7 @@ RSpec.configure do |config|
   
   # necessary to get capybara to work cause of some weird change they made
   config.include Capybara::DSL
-  
+  Capybara.javascript_driver = :webkit
   
   #turned off transactional fixtures, now using DatabaseCleaner to clean up before and after
   config.before(:suite) do
