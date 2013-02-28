@@ -13,8 +13,9 @@
  */
 
 body {
-	background:#ddd;
 	font-family: Arial, Verdana, Helvetica, sans-serif;
+	background: #ddd;
+	background: #fff url(gradient-hexagon.png) no-repeat;
 }
 
 h1, h2, h3 {
@@ -35,6 +36,8 @@ h2 span {
 	margin: 0 auto;
 	border: 1px dotted black;
 	padding: 5px 10px;
+	
+
 }
 
 #login_logout {
