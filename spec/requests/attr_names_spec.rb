@@ -3,10 +3,7 @@ require 'spec_helper'
 describe 'Attribute functionality' do
   
   before(:all) do
-    @type_list = ["STRING","FLOAT","DATETIME","BOOLEAN","INTEGER"]
-    @type_list.each do |thing| 
-      FactoryGirl.create(:attr, :value_type => thing)
-    end
+    populate_attr_names
     #@attr_1 = FactoryGirl.create(:attr)
   end
   

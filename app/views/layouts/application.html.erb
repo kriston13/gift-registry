@@ -9,7 +9,9 @@
 <body>
     <div id="container">
         <div id="masthead">
-            <h1><%= link_to "Bee Registered", root_url %></h1>
+            <h1>
+                <%= link_to image_tag("logo.png", :alt => "Bee Registered", :title => "Click to return to the Bee Registered homepage"), root_url %>
+            </h1>
             <div id="login_logout">
                 <%= render "shared/login_logout"%>
             </div>

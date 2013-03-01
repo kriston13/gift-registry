@@ -1,14 +1,12 @@
 require 'spec_helper'
+require 'support/application_support'
 
 describe 'Creating a Registry' do
   
   before(:each) do
+    #@user = create_logged_in_user
     @user = FactoryGirl.create(:user)
-    visit root_path
-    click_link "Log In"
-    fill_in "Email", :with => @user.email
-    fill_in "Password", :with => @user.password
-    click_button "Log In"
+    log_in_with_user(@user)
   end  
   
   it "will result in a new registry" do

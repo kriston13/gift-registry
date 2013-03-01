@@ -10,6 +10,12 @@ FactoryGirl.define do
     owner
   end
   
+  factory :registry_item do
+    sequence(:name) { |n| "Item #{n}" }
+    description "Some description for this item"
+  end
+  
+  
   factory :attr_name, :aliases => [:attr] do
     sequence(:description) { |n| "Attribute Number #{n}" }
     value_type "STRING"

@@ -1,5 +1,5 @@
 <fieldset>
     <%= f.label :description, "Would you like to provide more information about this item?" %><br />
     <%= f.select :attr_name_id, options_from_collection_for_select(AttrName.all,"id","description") %>
-    <%= f.text_field :raw_value %>
+    <%= f.text_field :raw_value %> 
 </fieldset>

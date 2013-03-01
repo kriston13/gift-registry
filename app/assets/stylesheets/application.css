@@ -30,12 +30,9 @@ h2 span {
 	position:relative;
 }
 
-#masthead h1 {
-	text-indent: -1000px;
+#masthead h1 img {
 	height: 75px;
 	width: 400px;
-	background:	url("logo.png") no-repeat;
-	
 }
 
 #container {
@@ -44,9 +41,8 @@ h2 span {
 	margin: 0 auto;
 	border: 1px dotted black;
 	padding: 5px 10px;
-	
-
 }
+
 
 #login_logout {
 	position:absolute;
@@ -69,3 +65,12 @@ h2 span {
 	font-size:10px;
 	color: gray;
 }
+
+ul {
+	
+}
+
+li {
+	line-height: 1.5em;
+}
+

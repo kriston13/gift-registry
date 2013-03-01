@@ -6,7 +6,8 @@ gem 'rails', '3.2.12'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-
+gem 'pry'
+gem 'pry-doc'
 
 
 # Gems used only for assets and not required
@@ -55,5 +56,6 @@ group :test do
     gem 'rb-fsevent', :require=>false if RUBY_PLATFORM =~ /darwin/i
     gem 'terminal-notifier-guard'
     gem 'guard-livereload'
+    gem 'debugger'
 end
 
