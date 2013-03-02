@@ -39,6 +39,8 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
       xpath (~> 1.0.0)
+    capybara-screenshot (0.3.4)
+      capybara (>= 1.0, < 3)
     capybara-webkit (0.14.2)
       capybara (~> 2.0, >= 2.0.2)
       json
@@ -65,6 +67,8 @@ GEM
     em-websocket (0.4.0)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.5.3)
+    enumerated_attribute (0.2.16)
+      meta_programming (>= 0.2.1)
     erubis (2.7.0)
     eventmachine (1.0.0)
     execjs (1.4.0)
@@ -104,8 +108,15 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    meta_programming (0.2.2)
     method_source (0.8.1)
     mime-types (1.21)
+    money (5.1.1)
+      i18n (~> 0.6.0)
+    money-rails (0.8.0)
+      activesupport (>= 3.0)
+      money (~> 5.1.0)
+      railties (>= 3.0)
     multi_json (1.6.1)
     nokogiri (1.5.6)
     polyglot (0.3.3)
@@ -197,15 +208,18 @@ PLATFORMS
 DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   capybara
+  capybara-screenshot
   capybara-webkit
   coffee-rails (~> 3.2.1)
   database_cleaner
   debugger
+  enumerated_attribute
   factory_girl_rails (~> 4.0)
   guard-livereload
   guard-rspec
   jquery-rails
   launchy
+  money-rails
   pry
   pry-doc
   rails (= 3.2.12)

@@ -26,6 +26,8 @@ group :development do
   gem 'rspec-rails', "~> 2.0"
 end
 
+gem 'enumerated_attribute'
+gem 'money-rails'
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
@@ -57,5 +59,6 @@ group :test do
     gem 'terminal-notifier-guard'
     gem 'guard-livereload'
     gem 'debugger'
+    gem 'capybara-screenshot'
 end
 

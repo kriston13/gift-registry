@@ -27,6 +27,20 @@ class RegistryItemsController < ApplicationController
     redirect_to registry_path(@registry)
   end
   
+  def edit
+    @item = RegistryItem.find_by_id(params[:id])
+  end
+  
+  def update
+    @item = RegistryItem.find_by_id(params[:id])
+    if @item.update_attributes(params[:registry_item])
+      redirect_to registry_path(@registry), notice: "Item has been updated"
+    else
+      render 'edit'
+    end
+  end
+  
+  
 private
 
   def get_registry

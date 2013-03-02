@@ -1,5 +1,5 @@
 class RegistryItem < ActiveRecord::Base
-  belongs_to :registry
+  belongs_to :registry, :include => :item_attr_vals
   has_many :item_attr_vals
   has_many :attr_names, :through => :item_attr_vals
   

@@ -1,0 +1,28 @@
+<%= form_for([@registry, @item]) do |item| %>
+    
+    <% if @item.errors.any? %>
+    <div class="error_messages">
+        <h2>Form is invalid</h2>
+        <ul>
+            <% @item.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
+    
+    <ul>
+        <li><%= item.label :name, "Name" %><%= item.text_field :name %></li>
+        <li><%= item.label :description, "Description" %><%= item.text_area :description, :rows => 3 %></li>
+
+    </ul>
+
+    <fieldset>
+    <%= item.fields_for :item_attr_vals do |iav| %>
+        <%= render 'item_attr_val_fields', :f => iav %>
+    <% end %>
+    <%= link_to_add_fields "Add another attribute", item, :item_attr_vals%>
+    </fieldset>
+        
+    <div class="actions"><%= item.submit %> | <%= link_to "Return to Registry", registry_path(@registry)%></div>
+<% end %>

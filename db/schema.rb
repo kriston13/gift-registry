@@ -11,14 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130227125853) do
+ActiveRecord::Schema.define(:version => 20130302145027) do
 
   create_table "attr_names", :force => true do |t|
     t.string   "description"
     t.string   "value_type"
     t.boolean  "link"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.boolean  "treat_as_price"
   end
 
   create_table "item_attr_vals", :force => true do |t|
@@ -30,8 +31,10 @@ ActiveRecord::Schema.define(:version => 20130227125853) do
     t.integer  "int_val"
     t.boolean  "bool_val"
     t.datetime "datetime_val"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+    t.integer  "price_val_cents",    :default => 0,     :null => false
+    t.string   "price_val_currency", :default => "AUD", :null => false
   end
 
   create_table "registries", :force => true do |t|

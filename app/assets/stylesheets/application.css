@@ -38,9 +38,13 @@ h2 span {
 #container {
 	background:#fff;
 	width:1024px;
-	margin: 0 auto;
-	border: 1px dotted black;
-	padding: 5px 10px;
+	margin: 1px auto;
+/*	border: 1px dotted black;*/
+	padding: 5px 10px 0px 10px;
+}
+
+#container fieldset {
+	margin: 5px 0px;
 }
 
 
@@ -58,7 +62,7 @@ h2 span {
 }
 
 #footer {
-	
+	padding: 10px 0px 1px 0px;
 }
 
 #footer p{

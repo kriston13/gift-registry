@@ -35,7 +35,7 @@ end
 
 describe "Registries with multiple users" do
 
-  before(:all) do
+  before(:each) do
     @registry = FactoryGirl.create(:registry)
     @other_user = FactoryGirl.create(:user)
     visit root_path

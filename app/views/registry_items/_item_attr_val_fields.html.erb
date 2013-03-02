@@ -1,2 +1,2 @@
-<%= f.select :attr_name_id, options_from_collection_for_select(AttrName.all,"id","description") %>
+<%= f.select :attr_name_id, options_from_collection_for_select(AttrName.all,"id","description"), :prompt => "Select an attribute" %>
 <%= f.text_field :raw_value %> <br />

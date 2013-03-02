@@ -3,6 +3,8 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'capybara/rspec'
+require 'capybara-screenshot/rspec'
+require 'database_cleaner'
 #require 'rspec/autorun'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
@@ -39,21 +41,23 @@ RSpec.configure do |config|
   
   # necessary to get capybara to work cause of some weird change they made
   config.include Capybara::DSL
-  Capybara.javascript_driver = :webkit
+  
+  Capybara::Screenshot.autosave_on_failure = false
+  Capybara.default_driver = :webkit
   
   #turned off transactional fixtures, now using DatabaseCleaner to clean up before and after
   config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
+    DatabaseCleaner.strategy = :truncation
   end
 
   config.before(:each) do
     DatabaseCleaner.start
+    #DatabaseCleaner.clean
   end
 
   config.after(:each) do
     DatabaseCleaner.clean
   end
-  
+
   
 end

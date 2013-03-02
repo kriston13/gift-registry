@@ -11,7 +11,7 @@
 <%= form_for attr_name do |f| -%>
 <ul>
   <li><%= f.label :description, "Description" %><%= f.text_field :description%></li>
-  <li><%= f.label :value_type, "Select the type of value this will be" %> <%= select(:attr_name, :value_type, [['String',"STRING"],['Float',"FLOAT"],["Date time","DATETIME"],["Boolean","BOOLEAN"],["Integer","INTEGER"]])%></li>
+  <li><%= f.label :value_type, "Select the type of value this will be" %> <%= f.select(:attr_name, :value_type, [['String',"STRING"],['Float',"FLOAT"],["Date time","DATETIME"],["Boolean","BOOLEAN"],["Integer","INTEGER"]])%></li>
   <li><%= f.label :link, "Will this be a link?"%><%= f.check_box :link, :value => "1" %></li>
 </ul>
 <div><%= f.submit %>
