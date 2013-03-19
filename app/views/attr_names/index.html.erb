@@ -1,10 +1,12 @@
 <h2>Manage Item Attributes</h2>
 <p>Here is a list of item attributes</p>
-<ul>
+<ul id="attribute_list">
     <% @attr_names.each do |attr_name| %>
-        <li><%= attr_name.description %> - <%= attr_name.value_type %><br />
+        <%= content_tag :li, :id => "attr_#{attr_name.id}", :class => "list_item" do -%>
+            <%= attr_name.description %> - <%= attr_name.value_type %><%= " | Treated as a price" if attr_name.treat_as_price? %><br />
             <%= link_to "Edit", edit_attr_name_path(attr_name), :id=> "edit_attr_name_#{attr_name.id}" %> | 
-            <%= link_to "Delete", attr_name_path(attr_name), :method => :delete, :confirm =>"Are you sure you want to delete this attribute: #{attr_name.description}", :id =>"delete_attr_name_#{attr_name.id}" %></li>
+            <%= link_to "Delete", attr_name_path(attr_name), :method => :delete, :confirm =>"Are you sure you want to delete this attribute: #{attr_name.description}", :id =>"delete_attr_name_#{attr_name.id}" %>
+        <% end %>
     <% end %>
     <li><%= link_to "Add a new item attribute", new_attr_name_path %>
 </ul>

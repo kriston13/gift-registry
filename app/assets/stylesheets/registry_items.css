@@ -1,0 +1,34 @@
+ul#registry_items_list {
+	list-style-type: none;
+	padding:0px;
+}
+
+ul#registry_items_list>li {
+
+}
+
+div.registry_item {
+	position: relative;
+	margin-bottom: 5px;
+	padding:5px;
+	border-bottom: 1px solid #E6E6E6;
+/*	background-color: #FFEBCC;*/
+}
+
+ul#registry_items_list>li:first-of-type>div.registry_item {
+	border-top: 1px solid #E6E6E6;
+}
+
+div.registry_item .owner_tools {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+}
+
+div.registry_item h3 {
+	margin: 0px;
+}
+
+div.registry_item p {
+	margin: 0px;
+}

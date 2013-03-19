@@ -4,7 +4,12 @@ module RegistryItemsHelper
     @an = AttrName.find_by_id(iav.attr_name_id)
     case @an.value_type
     when "INTEGER"
-      iav.int_val ? iav.int_val : iav.price_val
+      if @an.treat_as_price
+        humanized_money_with_symbol iav.price_val
+      else
+        iav.int_val
+      end
+      #iav.int_val ? iav.int_val : iav.price_val
     when "BOOLEAN"
       iav.boolean_val
     when "DATETIME"

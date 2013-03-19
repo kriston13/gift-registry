@@ -32,6 +32,7 @@ FactoryGirl.define do
     end
     
     factory :price_attr do
+      description "A Price Attribute"
       value_type "INTEGER"
       treat_as_price true
     end

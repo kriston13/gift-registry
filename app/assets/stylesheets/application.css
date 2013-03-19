@@ -37,10 +37,10 @@ h2 span {
 
 #container {
 	background:#fff;
-	width:1024px;
+	width:960px;
 	margin: 1px auto;
 /*	border: 1px dotted black;*/
-	padding: 5px 10px 0px 10px;
+	padding: 5px 15px 0px 15px;
 }
 
 #container fieldset {
@@ -59,6 +59,8 @@ h2 span {
 	padding: 2px 5px;
 	background: #3c3;
 	border: 2px solid #093;
+	width: 90%;
+	margin: 0px auto;
 }
 
 #footer {

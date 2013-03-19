@@ -18,6 +18,8 @@ describe 'Attribute functionality' do
     page.should have_content("Item Attributes")
     page.should have_content("Add a new item attribute")
     page.should have_content("A String Attribute - STRING")
+    page.should have_content("A Price Attribute - INTEGER | Treated as a price")
+    #page.should have_content("")
   end
   
   it "will be able to add a new item attribute" do

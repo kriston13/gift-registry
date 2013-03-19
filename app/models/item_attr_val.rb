@@ -9,15 +9,6 @@ class ItemAttrVal < ActiveRecord::Base
   
   before_save :assign_value
   
-  #currently only works with dollar sign.
-  #might actually be unnecessary.
-  # totally unnecessary now that the new money-rails gem is here...
-  def remove_dollar_sign
-    if self.raw_value.start_with?("$")
-      self.raw_value = self.raw_value[1,self.raw_value.length-1]
-    end
-  end
-  
   # gets the attribute's type, and then determines which of the columns to populate it with.
   # the raw value is still stored for prosperity's sake
   def assign_value
@@ -38,7 +29,8 @@ class ItemAttrVal < ActiveRecord::Base
         end
       when "INTEGER"
         if assigned_attr.treat_as_price
-          self.price_val_cents = self.raw_value.to_i
+          logger.debug "Treating this as a price"
+          self.price_val_cents = Money.parse(self.raw_value).cents
         else
           self.int_val = self.raw_value.to_i
         end

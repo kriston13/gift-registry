@@ -16,7 +16,8 @@
   <li><%= f.label :value_type, "Select the type of value this will be" %> <%= select(:attr_name, :value_type, [['String',"STRING"],['Float',"FLOAT"],['Date time',"DATETIME"],['Boolean',"BOOLEAN"],['Integer',"INTEGER"]])%></li>
 
   <li><%= f.label :link, "Will this be a link?"%><%= f.check_box :link, :value => "1" %></li>
+  <li><%= f.label :treat_as_price %><%= f.check_box :treat_as_price, :value => "0" %></li>
 </ul>
-<div><%= f.submit %>
+<div><%= f.submit %><%= link_to "Cancel", attr_names_path %>
 
 <% end %>
