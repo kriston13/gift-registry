@@ -7,20 +7,27 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <div id="masthead">
-        <h1>
-            <%= link_to image_tag("logo.png", :alt => "Bee Registered", :title => "Click to return to the Bee Registered homepage"), root_url %>
-        </h1>
-        <div id="login_logout">
-            <%= render "shared/login_logout"%>
+    <div class="masthead_container">
+        <div id="masthead">
+            <h1>
+                <% if false %>
+                
+                <%= link_to image_tag("logo.png", :alt => "Bee Registered", :title => "Click to return to the Bee Registered homepage"), root_url %>
+                <% end %>
+                <%= link_to (root_url) do %>
+                <span>bee</span>Registered
+                <% end %>
+            </h1>
+            <div id="login_logout">
+                <%= render "shared/login_logout"%>
+            </div>
+            <ul id="nav_bar">
+                <li><%= link_to "Home", root_url %></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
         </div>
-        <ul id="nav_bar">
-            <li><%= link_to "Home", root_url %></li>
-            <li><a href="#">FAQ</a></li>
-        </ul>
     </div>
     <div id="container">
-
         <div id="content">
             <% flash.each do |name,msg| %>
                 <%= content_tag :div, msg, id: "flash_#{name}" %>
