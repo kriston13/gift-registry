@@ -1,7 +1,7 @@
 FactoryGirl.define do 
   factory :user, :aliases => [:owner, :viewer] do 
     sequence(:email) { |n| "jack#{n}@tester.com" }
-    sequence(:firstname) {|n| "jack the #{n}"}
+    sequence(:firstname) {|n| "Jack the #{n}"}
     password "passw0rd"
   end
   
@@ -36,6 +36,19 @@ FactoryGirl.define do
       value_type "INTEGER"
       treat_as_price true
     end
+    
+    factory :low_price do
+      description "Range Low Price"
+      value_type "INTEGER"
+      treat_as_price true
+    end
+    
+    factory :high_price do
+      description "Range High Price"
+      value_type "INTEGER"
+      treat_as_price true
+    end
+    
   end
   
 end

@@ -40,4 +40,6 @@ class ItemAttrVal < ActiveRecord::Base
     end
   end
   
+  
+  
 end

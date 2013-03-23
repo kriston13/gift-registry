@@ -6,5 +6,13 @@ class AttrName < ActiveRecord::Base
   
   validates_uniqueness_of :description
   
+  
+
+  
+  
+  def find_matching_pair(an_name)
+    
+  end
+  
 
 end

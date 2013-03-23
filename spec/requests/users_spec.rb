@@ -11,6 +11,7 @@ describe "Users" do
     fill_in "user_password", :with => attrs[:password]
     fill_in "user_password_confirmation", :with => attrs[:password]
     click_button "Sign Up"
+    #save_and_open_page
     page.should have_content("You're now registered")
     page.should have_content(attrs[:firstname])
   end

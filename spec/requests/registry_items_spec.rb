@@ -83,4 +83,44 @@ describe "Registry items" do
     
   end
   
+  it "will display range of prices", :js =>true do
+    lowAttr = FactoryGirl.create(:low_price)
+    highAttr = FactoryGirl.create(:high_price)
+    
+    reg1 = FactoryGirl.create(:registry, :owner_id => @user.id)
+    item1 = FactoryGirl.create(:registry_item, :registry_id => reg1.id)
+    FactoryGirl.create(:item_attr_val, :registry_item_id => item1.id, :attr_name_id =>  lowAttr.id, :raw_value=>"$1.99")
+    FactoryGirl.create(:item_attr_val, :registry_item_id => item1.id, :attr_name_id => highAttr.id, :raw_value => "34.12")
+
+    visit registry_path(reg1)
+    #save_and_open_page
+    page.should have_content("Price ranges from: $1.99 to $34.12")
+  end
+  
+  it "will display an expected low price" do
+    lowAttr = FactoryGirl.create(:low_price)
+    highAttr = FactoryGirl.create(:high_price)
+    
+    reg2 = FactoryGirl.create(:registry, :owner_id => @user.id)
+    item2 = FactoryGirl.create(:registry_item, :registry_id => reg2.id)
+    FactoryGirl.create(:item_attr_val, :registry_item_id => item2.id, :attr_name_id =>  lowAttr.id, :raw_value=>"$.99")
+
+    visit registry_path(reg2)
+    #save_and_open_page
+    page.should have_content("Prices starting at: $0.99")
+  end
+
+  it "will display an expected high price" do
+    lowAttr = FactoryGirl.create(:low_price)
+    highAttr = FactoryGirl.create(:high_price)
+    
+    reg3 = FactoryGirl.create(:registry, :owner_id => @user.id)
+    item3 = FactoryGirl.create(:registry_item, :registry_id => reg3.id)
+    FactoryGirl.create(:item_attr_val, :registry_item_id => item3.id, :attr_name_id =>  highAttr.id, :raw_value=>"$101.199")
+
+    visit registry_path(reg3)
+    save_and_open_page
+    page.should have_content("Prices under: $101.20")
+  end
+  
 end
