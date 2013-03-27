@@ -4,8 +4,9 @@ class RegistriesController < ApplicationController
   #before_filter :find_current_user
   
   def new
-    logger.debug "@current_user is: #{@current_user.id}"
+    #logger.debug "@current_user is: #{@current_user.id}"
     #@registry = Registry.new(:owner_id => @current_user.id)
+
     @registry = @current_user.registries.build
   end
 
@@ -19,11 +20,8 @@ class RegistriesController < ApplicationController
   end
 
   def show
-    logger.debug "LOADING SHOW-------"
-    logger.debug "the registry id is: #{params[:id]}"
-    #@path_user = User.find_by_id(params[:user_id])
-    @registry = Registry.find_by_id(params[:id])
-    logger.debug "@registry is: #{@registry.name}"
+    @registry = Registry.includes({:registry_items => {:item_attr_vals => :attr_name}}).find_by_id(params[:id])
+    #logger.debug "@registry is: #{@registry.name}"
   end
 
   def index

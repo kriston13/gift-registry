@@ -119,7 +119,7 @@ describe "Registry items" do
     FactoryGirl.create(:item_attr_val, :registry_item_id => item3.id, :attr_name_id =>  highAttr.id, :raw_value=>"$101.199")
 
     visit registry_path(reg3)
-    save_and_open_page
+    #save_and_open_page
     page.should have_content("Prices under: $101.20")
   end
   

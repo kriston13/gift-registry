@@ -10,7 +10,11 @@ private
   helper_method :current_user
 
   def authorize
-    redirect_to login_url, alert: "You need to login to complete this step" if current_user.nil?
+    if current_user.nil?
+      flash[:alert] = "You need to login to complete this step"
+      session[:return_to] = request.url
+      redirect_to login_url
+    end
   end
 
 end

@@ -33,6 +33,28 @@ describe 'Creating a Registry' do
 end
 
 
+describe "Authentication will be required to" do
+
+  before(:each) do
+    @registry = FactoryGirl.create(:registry)
+    #@other_user = FactoryGirl.create(:user)
+  end
+  
+  it "create a registry" do
+    visit(new_registry_path)
+    current_path.should == login_path
+  end
+  
+  it "delete a registry" do
+    pending("need to set up a way to delete registries first")
+  end
+  
+  it "edit a registry" do
+    pending("need to set up a way to edit registries first")
+  end
+  
+end
+
 describe "Registries with multiple users" do
 
   before(:each) do

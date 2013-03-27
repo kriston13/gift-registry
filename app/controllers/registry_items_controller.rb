@@ -1,5 +1,6 @@
 class RegistryItemsController < ApplicationController
   before_filter :get_registry
+  before_filter :authorize
   
   def show
   end

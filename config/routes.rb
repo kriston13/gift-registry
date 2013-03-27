@@ -15,9 +15,13 @@ GiftRegistry::Application.routes.draw do
     #end
   end
   
-  resources :registries, :only => :show do
+  resources :registries do
     resources :registry_items
   end
+  
+  # resources :registries, :only => :show do
+  #   resources :registry_items
+  # end
   
   resources :attr_names
   resources :sessions
