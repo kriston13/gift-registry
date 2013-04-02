@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    session[:return_to] = request.referer if session[:return_to] == nil
   end
   
   def create

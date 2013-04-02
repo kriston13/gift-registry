@@ -3,7 +3,12 @@
 <div id="registryList">
     <ul>
         <% @path_registries.each do |registry| %>
-            <li><%= link_to registry.name, registry_path(registry) %></li>
+            <li><%= div_for(registry) do %>
+                    <h4><%= link_to registry.name, registry_path(registry) %></h4>
+                    <% if is_owner? %>
+                        <%= link_to "Edit", edit_registry_path(registry) %> | <%= link_to "Delete", user_registries_path(@current_user), :method => :delete, :confirm => "Are you sure you wish the registry called #{registry.name}?" %>
+                    <% end %>
+                <% end %></li>
         <% end %>
         <% if is_owner? %>
             <li><%= link_to 'Add a new registry', new_user_registry_path(@current_user) %></li>
