@@ -22,7 +22,7 @@ body {
 
 h1, h2, h3 {
 	font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
-	margin:5px 0px;
+	margin:0px 0px 5px 0px;
 }
 
 h2 span, h1 span {
@@ -33,11 +33,12 @@ h2 span, h1 span {
 	padding: 0px;
 	background:#696969;
 	width:100%;
+	min-width:900px;
 	height:90px;
 }
 
 #masthead {
-	width:960px;
+	width:900px;
 	margin: 0px auto;
 	position:relative;
 	height:100%;
@@ -136,10 +137,11 @@ ul#nav_bar li:first-child {
 
 #container {
 	background:#fff;
-	width:960px;
+	width:900px;
 	margin: 0px auto;
 /*	border: 1px dotted black;*/
-	padding: 0px 15px 0px 15px;
+/*	padding: 0px 15px 0px 15px;*/
+	padding: 15px 0px;
 }
 
 #container fieldset {
