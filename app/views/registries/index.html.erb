@@ -5,9 +5,6 @@
         <% @path_registries.each do |registry| %>
             <li><%= div_for(registry) do %>
                     <h4><%= link_to registry.name, registry_path(registry) %></h4>
-                    <% if is_owner? %>
-                        <%= link_to "Edit", edit_registry_path(registry) %> | <%= link_to "Delete", user_registries_path(@current_user), :method => :delete, :confirm => "Are you sure you wish the registry called #{registry.name}?" %>
-                    <% end %>
                 <% end %></li>
         <% end %>
         <% if is_owner? %>

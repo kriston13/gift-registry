@@ -1,0 +1,24 @@
+<%= form_for([@current_user, @registry]) do |registry| %>
+    <% #debugger %>
+    <% if @registry.errors.any? %>
+        <div class="error_messages">
+            <h2>Form is invalid</h2>
+            <ul>
+                <% @registry.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <ul>
+        <li><%= registry.label :name, 'Registry Name' %><%= registry.text_field :name %></li>
+        <li><%= registry.label :description, 'Description' %><%= registry.text_area :description, :content => nil, :rows => 3, :cols =>40 %></li>
+        <li><%= registry.label 'use_startdate', "Set a start date?" %><%= check_box_tag 'use_startdate'%></li>
+        <li><%= registry.label :startdate, 'Starts On' %><%= date_select @registry, :startdate %></li>
+        <li><%= registry.label 'use_enddate', "Set an end date?" %><%= check_box_tag 'use_enddate'%></li>        
+        <li><%= registry.label :enddate, 'Finishes on' %><%= date_select @registry, :enddate %></li>
+        <li><%= registry.label :public, 'Make Public' %><%= registry.check_box :public, :value => "public" %><span class="important">If this is made public, anybody will be able to view the contents of this gift registry</span></li>
+        <li><%= registry.label :interest_interval, 'Days to be Reserved' %><%= registry.text_field :interest_interval, :value => '3', :size => 3,:maxlength => 3 %><span>Pick between 1 to 999 days.</span></li>
+    </ul>
+    <div class="actions"><%= registry.submit 'Create' %> | <%= link_to "Cancel", user_registries_path(@current_user) %></div>
+<% end %>

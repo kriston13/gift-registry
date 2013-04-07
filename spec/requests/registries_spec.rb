@@ -29,7 +29,17 @@ describe 'Creating a Registry' do
     page.should_not have_content("Registry created successfully!")
     page.should have_content("Name can't be blank")
   end
-
+  
+  it "will allow for an edited registry" do
+    @registry = FactoryGirl.create(:registry, :owner_id => @user.id)
+    visit(user_registry_path(@user, @registry))
+    click_link "edit"
+    fill_in "Registry Name", :with => "Edited Name"
+    click_button "Create"
+    page.should have_content("Registry has been updated")
+    page.should have_content("Edited Name")
+  end
+  
 end
 
 
@@ -37,7 +47,7 @@ describe "Authentication will be required to" do
 
   before(:each) do
     @registry = FactoryGirl.create(:registry)
-    #@other_user = FactoryGirl.create(:user)
+    @user = FactoryGirl.create(:user)\
   end
   
   it "create a registry" do
@@ -45,12 +55,21 @@ describe "Authentication will be required to" do
     current_path.should == login_path
   end
   
+  it "edit a user's registry" do
+    @registry = FactoryGirl.create(:registry, :owner_id => @user.id)
+    visit(logout_path)
+    @another_user = FactoryGirl.create(:user)
+    visit(edit_registry_path(@registry))
+    #save_and_open_page
+    page.should have_content("You need to login to complete this step")
+    log_in_with_user(@another_user)
+    visit(edit_registry_path(@registry))
+    page.should have_content("You can only edit your own registries")
+    
+  end
+    
   it "delete a registry" do
     pending("need to set up a way to delete registries first")
-  end
-  
-  it "edit a registry" do
-    pending("need to set up a way to edit registries first")
   end
   
 end

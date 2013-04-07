@@ -7,27 +7,19 @@ GiftRegistry::Application.routes.draw do
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
-
-  resources :users do
-    resources :registries, :except => :show
-    #resources :registries do
-    #  resources :registry_items
-    #end
-  end
   
   resources :registries do
     resources :registry_items
   end
   
-  # resources :registries, :only => :show do
-  #   resources :registry_items
-  # end
-  
+  resources :users do
+    resources :registries
+  end
+
+
   resources :attr_names
   resources :sessions
 
-  # resources :registries
-  
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

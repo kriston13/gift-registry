@@ -28,7 +28,6 @@ def populate_registry_with_items
   
 end
 
-
 def populate_attr_names
   @type_list = ["STRING","FLOAT","DATETIME","BOOLEAN","INTEGER"]
   @type_list.each do |thing| 

@@ -39,16 +39,16 @@ h2 span, h1 span {
 	padding: 0px;
 	background:#696969;
 	width:100%;
-	min-width:900px;
+	min-width:920px;
 	height:90px;
 }
 
 #masthead {
 	width:900px;
-	margin: 0px auto;
+	margin: 0px 0px;
 	position:relative;
 	height:100%;
-	padding:0px;
+	padding:0px 10px;
 /*	padding-top:8px;*/
 	vertical-align:center;
 }
@@ -143,7 +143,7 @@ ul#nav_bar li:first-child {
 
 #container {
 	background:#fff;
-	width:900px;
+	width:920px;
 	margin: 0px auto;
 /*	border: 1px dotted black;*/
 /*	padding: 0px 15px 0px 15px;*/
@@ -154,20 +154,22 @@ ul#nav_bar li:first-child {
 	margin: 5px 0px;
 }
 
-
+#content {
+	padding: 0px 10px;
+	margin:5px 0px;
+}
 
 
 #flash_notice {
-	padding: 2px 5px;
-	background: #3c3;
-	border: 2px solid #093;
-	width: 90%;
-	margin: 0px auto;
-	margin-top:5px;
+	padding: 8px 10px;
+	background: #00cc99;
+/*	border: 2px solid #093;*/
+	width: 100%;
+	margin: 0px;
 }
 
 #footer {
-	padding: 10px 0px 1px 0px;
+	padding: 5px 10px;
 }
 
 #footer p{

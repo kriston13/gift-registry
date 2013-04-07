@@ -7,9 +7,6 @@ class RegistryItemsController < ApplicationController
 
   def new
     @item = @registry.registry_items.build()
-    #pp "#{@item.registry_id}"
-    #binding.pry
-    #debugger
     @item.item_attr_vals.build
   end
 
@@ -24,8 +21,9 @@ class RegistryItemsController < ApplicationController
 
   def destroy
     @item = RegistryItem.find(params[:id])
+    item_name = @item.name
     @item.destroy
-    redirect_to registry_path(@registry)
+    redirect_to registry_path(@registry), notice: "The item called \"#{item_name}\" has been deleted."
   end
   
   def edit
