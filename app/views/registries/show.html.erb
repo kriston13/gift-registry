@@ -2,7 +2,7 @@
 <div><%= @registry.description %>
 <% if is_owner? %>
     <div class="owner_tools">
-        <%= link_to "edit", edit_user_registry_path(@current_user,@registry) %> | <%= link_to "delete", user_registries_path(@current_user), :method => :delete, :confirm => "Are you sure you wish to delete the registry called #{@registry.name}?" %>
+        <%= link_to "edit", edit_user_registry_path(@current_user,@registry) %> | <%= link_to "delete", user_registry_path(@current_user, @registry), :confirm => "Are you sure you wish to delete the registry called #{@registry.name}?", :method => :delete %>
     </div>
 <% end %>
 </div>

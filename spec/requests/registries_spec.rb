@@ -40,6 +40,14 @@ describe 'Creating a Registry' do
     page.should have_content("Edited Name")
   end
   
+  it "will also allow it to be deleted", :js => true do
+    @registry = FactoryGirl.create(:registry, :owner_id => @user.id)
+    visit(user_registry_path(@user, @registry))
+    click_link "delete"
+    page.driver.browser.switch_to.alert.accept
+    page.should have_content("The registry called \"#{@registry.name}\" has been deleted")
+  end
+  
 end
 
 
@@ -62,14 +70,26 @@ describe "Authentication will be required to" do
     visit(edit_registry_path(@registry))
     #save_and_open_page
     page.should have_content("You need to login to complete this step")
-    log_in_with_user(@another_user)
+    #log_in_with_user(@another_user)
+    fill_in "Email", :with => @another_user.email
+    fill_in "Password", :with => @another_user.password
+    #save_and_open_page
+    click_button "Log In"
     visit(edit_registry_path(@registry))
-    page.should have_content("You can only edit your own registries")
+    page.should have_content("You can only manage your own registries")
     
   end
     
-  it "delete a registry" do
-    pending("need to set up a way to delete registries first")
+  it "delete a user's registry" do
+    @registry = FactoryGirl.create(:registry, :owner_id => @user.id)
+    visit(logout_path)
+    @another_user = FactoryGirl.create(:user)
+    visit(registry_path(@registry))
+    #save_and_open_page
+    page.should_not have_content("edit")
+    page.should_not have_content("delete")
+
+
   end
   
 end

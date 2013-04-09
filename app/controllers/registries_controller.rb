@@ -50,6 +50,12 @@ class RegistriesController < ApplicationController
   end
 
   def destroy
+    @registry = Registry.find_by_id(params[:id])
+    owner_check
+    registry_name = @registry.name
+    @registry.destroy
+    redirect_to user_registries_path(@current_user), notice: "The registry called \"#{registry_name}\" has been deleted"
+    
   end
 
 private
@@ -58,7 +64,7 @@ private
   end
 
   def owner_check
-    @registry.owner_id == @current_user.id ? true : (redirect_to user_registries_path(@current_user), notice: "You can only edit your own registries")
+    @registry.owner_id == @current_user.id ? true : (redirect_to user_registries_path(@current_user), notice: "You can only manage your own registries")
   end
 
 end

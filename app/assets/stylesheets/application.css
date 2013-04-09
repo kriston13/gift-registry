@@ -45,7 +45,7 @@ h2 span, h1 span {
 
 #masthead {
 	width:900px;
-	margin: 0px 0px;
+	margin: 0px auto;
 	position:relative;
 	height:100%;
 	padding:0px 10px;
