@@ -36,9 +36,9 @@ describe Booking do
     
     @valid_bookings = Booking.valid_bookings(3)
     
-    @valid_bookings.each do |booking|
-      puts "booking #{booking.id} expires on #{booking.booking_expiry_date}"
-    end
+    # @valid_bookings.each do |booking|
+    #   puts "booking #{booking.id} expires on #{booking.booking_expiry_date}"
+    # end
     
     @valid_bookings.size.should == 2
     
