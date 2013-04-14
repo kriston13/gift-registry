@@ -13,17 +13,9 @@
             <h3><%= item.name.titlecase %></h3>
             <p><%= item.description %></p>
 
-            <div class="item_tools">
-                <% if available_to_book? do %>
-                    <div>Book this item</div>
-                <% elsif booked? do %>
-                    <div>Booked until PLACEHOLDER DATE TIME</div>
-                <% elsif item.confirmed? do %>
-                    <div>Purchased</div>
-                <% else %>
-                    <div>Unavailable</div>
-                <% end %>
-            </div>
+            <%= content_tag(:div, :id => "item_#{item.id}_tools", :class => "item_tools") do %>
+                <%= render :partial => 'booking_tools', :locals => { :item => item } %>
+            <% end %>
 
             <% if item_attr_vals = item.item_attr_vals %>
                  <table class="item_attr_val_table">

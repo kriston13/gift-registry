@@ -1,0 +1,21 @@
+<% @valid_bookings = Booking.valid_bookings(item.id) %>
+<% @valid_bookings.each do |booking, index| %>
+    <% logger.debug "booking #{index} expires: #{booking.booking_expiry_date.to_s(:short)} "%>
+<% end %>
+<% if item.confirmed? %>
+    <span>Purchased</span>
+<% elsif @valid_bookings.size == 0 %>
+    <% if is_owner? %>
+        <span>Nobody has booked this yet</span>
+    <% else %>
+        <%= link_to "Book this item", registry_registry_item_bookings_path(@registry, item), :method => :post, :id => "book_item_#{item.id}", :remote => true %>
+    <% end %>
+<% elsif @valid_bookings.size > 0 %>
+    <% @this_booking = @valid_bookings.first%>
+    <span>Booked by user <%= "#{@this_booking.user_id}"%> until <%= "#{@this_booking.booking_expiry_date.to_formatted_s(:short)}" %></span>
+    <% if @this_booking.user_id == current_user.id %>
+        <br /><%= link_to "Cancel your booking", registry_registry_item_booking_path(@registry, item, @this_booking.id), :method => :delete, :id => "delete_booking_for_item_#{item.id}", :remote => true, :confirm => "Are you sure you want to delete your booking for the item: #{item.name}"%>
+    <% end %>
+<% else %>
+    <span>Unavailable</span>
+<% end %>

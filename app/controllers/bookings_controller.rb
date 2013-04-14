@@ -1,30 +1,39 @@
 class BookingsController < ApplicationController
 
+  before_filter :get_registry_and_registry_items
+
   def create
     @booking = @registry_item.bookings.build
-    @booking.user_id = @current_user.id
-    if @booking.save
-      
-    else
-      flash[:notice] = "There was a problem creating this booking. You might have to try again."
+    @booking.user_id = current_user.id
+    @booking.save
+    respond_to do |format|
+      format.html
+      format.js
     end
-    
   end
 
   def destroy
-    #@
+    @booking = Booking.find_by_id(params[:id])
+    @booking.destroy
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   private
-  
 
+    def available_to_book?
+      Booking.valid_bookings(@registry_item.id) == 0 ? true : false
+    end
 
-  def available_to_book?
-    #TODO
-  end
-
-  def booked?
-    #TODO
-  end
+    def booked?
+      Booking.valid_bookings(@registry_item.id) > 0 ? true : false
+    end
+    
+    def get_registry_and_registry_items
+      @registry = Registry.find_by_id(params[:registry_id])
+      @registry_item = RegistryItem.find_by_id(params[:registry_item_id])
+    end
 
 end
