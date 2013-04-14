@@ -51,5 +51,9 @@ FactoryGirl.define do
     
   end
   
+  factory :booking do
+  
+  end
+  
 end
 

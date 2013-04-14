@@ -9,11 +9,14 @@ GiftRegistry::Application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
   
   resources :registries do
-    resources :registry_items
+    resources :registry_items do
+      resources :bookings 
+    end
   end
   
   resources :users do
     resources :registries
+    resources :bookings
   end
 
 

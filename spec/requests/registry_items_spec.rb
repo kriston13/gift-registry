@@ -69,8 +69,8 @@ describe "Registry items" do
         
         data_id = first('a.add_fields')['data-id']
         find(:xpath, '//select/option[@value=\'\']/..').select "A String Attribute"
-        
-        text_field_id = find(:xpath, '//fieldset/input[@type=\'text\'][2][@id]')
+        #save_and_open_page
+        text_field_id = find(:xpath, '//fieldset/p[2]/input[@type=\'text\'][@id]')
         fill_in "#{text_field_id[:id]}", :with =>"An added attribute"
       end
     end
@@ -94,7 +94,8 @@ describe "Registry items" do
 
     visit registry_path(reg1)
     #save_and_open_page
-    page.should have_content("Price ranges from: $1.99 to $34.12")
+    page.should have_content("Price ranges from")
+    page.should have_content("$1.99 to $34.12")
   end
   
   it "will display an expected low price" do
@@ -107,7 +108,8 @@ describe "Registry items" do
 
     visit registry_path(reg2)
     #save_and_open_page
-    page.should have_content("Prices starting at: $0.99")
+    page.should have_content("Prices starting at")
+    page.should have_content("$0.99")
   end
 
   it "will display an expected high price" do
@@ -120,7 +122,8 @@ describe "Registry items" do
 
     visit registry_path(reg3)
     #save_and_open_page
-    page.should have_content("Prices under: $101.20")
+    page.should have_content("Prices under")
+    page.should have_content("$101.20")
   end
   
 end

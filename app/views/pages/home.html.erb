@@ -3,22 +3,33 @@
     Here you will find an easy way to share what you'd like, and for your family and friends (or even complete strangers) to help you get them!<br />
     I know, this sounds a little greedy, but let's face it... If people are intending to give you something, it'd be best if it is something you actually want!<br />
     From here, you can choose to either:
-    <ul>
-        <li>
+    <div class="col_block">
+        <ul>
+            <li>
+                <% if current_user %>
+                    <%= link_to "Logout", logout_path %>
+                <% else %>
+                    <%= link_to "Login", login_path%>
+                <% end %>
+            </li>
+            <li>Create a <%= link_to "new user", signup_path %></li>
+            <li>Search for a friend's registry</li>
+            <li><%= link_to "Manage item attributes", attr_names_path %></li>
             <% if current_user %>
-                <%= link_to "Logout", logout_path %>
-            <% else %>
-                <%= link_to "Login", login_path%>
+                <li><%= link_to "Create a registry", new_user_registry_path(current_user) %></li>
+                <li><%= link_to "View my registries", user_registries_path(current_user)%></li>
+                <li>Edit an existing registry</li>
             <% end %>
-        </li>
-        <li>Create a <%= link_to "new user", signup_path %></li>
-        <li>Search for a friend's registry</li>
-        <li><%= link_to "Manage item attributes", attr_names_path %></li>
-        <% if current_user %>
-            <li><%= link_to "Create a registry", new_user_registry_path(current_user) %></li>
-            <li><%= link_to "View my registries", user_registries_path(current_user)%></li>
-            <li>Edit an existing registry</li>
+        </ul>
+    </div>
+    <div class="col_block">
+        <% @full_list = Registry.all %>
+        <ul>
+        <% @full_list.each do |registry| %>
+            <li><%= link_to registry.name, registry %></li>
         <% end %>
-    </ul>
+        </ul>
+    </div>
+    <div class="clear">
     <h2><span>Have</span> fun!</h2>
 </p>

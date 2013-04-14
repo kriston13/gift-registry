@@ -10,6 +10,10 @@ if defined?(Bundler)
 end
 
 module GiftRegistry
+  
+  # this is the default expiry time in seconds. 
+  DEFAULT_EXPIRY_TIME = 259200
+  
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

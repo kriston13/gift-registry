@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_secure_password
   
   has_many :registries, :foreign_key => 'owner_id'
+  has_many :bookings
   
   attr_accessible :email, :firstname, :lastname, :password, :password_confirmation
   

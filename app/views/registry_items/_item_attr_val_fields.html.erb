@@ -1,2 +1,4 @@
-<%= f.select :attr_name_id, options_from_collection_for_select(AttrName.all,"id","description", f.object.attr_name_id), :prompt => "Select an attribute" %>
-<%= f.text_field :raw_value %> <br />
+<p class="item_attributes"><%= f.select :attr_name_id, options_from_collection_for_select(AttrName.all,"id","description", f.object.attr_name_id), :prompt => "Select an attribute" %>
+<%= f.text_field :raw_value %> 
+<%= f.hidden_field :_destroy %>
+<%= link_to "remove", "#", class: "remove_fields"%></p>

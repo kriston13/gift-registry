@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130302145027) do
+ActiveRecord::Schema.define(:version => 20130413150728) do
 
   create_table "attr_names", :force => true do |t|
     t.string   "description"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(:version => 20130302145027) do
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
     t.boolean  "treat_as_price"
+  end
+
+  create_table "bookings", :force => true do |t|
+    t.integer  "registry_item_id"
+    t.integer  "user_id"
+    t.datetime "booking_date"
+    t.datetime "booking_expiry_date"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "item_attr_vals", :force => true do |t|
@@ -56,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20130302145027) do
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.boolean  "confirmed"
   end
 
   create_table "users", :force => true do |t|

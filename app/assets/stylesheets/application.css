@@ -85,13 +85,13 @@ h2 span, h1 span {
 	top:8px;
 	text-align:right;
 	color:white;
-	font-size:16px;
+	font-size:14px;
 	font-weight:bold;
 	line-height:1.4em;
 }
 
 #login_logout a{
-	font-size:12px;
+	font-size:16px;
 	color:black;
 	padding:2px 4px;
 	background: white;
@@ -185,3 +185,16 @@ li {
 	line-height: 1.5em;
 }
 
+
+.col_block {
+	float:left;
+	height: 200px;
+	overflow:auto;
+	width: 400px;
+	margin: 0px;
+	padding: 0px 5px;
+}
+
+.clear {
+	clear:both;
+}

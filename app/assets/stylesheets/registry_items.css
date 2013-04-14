@@ -19,7 +19,7 @@ ul#registry_items_list>li:first-of-type>div.registry_item {
 	border-top: 1px solid #E6E6E6;
 }
 
-div.registry_item .owner_tools {
+div.registry_item .item_tools {
 	position: absolute;
 	top: 5px;
 	right: 5px;
@@ -31,4 +31,45 @@ div.registry_item h3 {
 
 div.registry_item p {
 	margin: 0px;
+}
+
+
+
+
+table.item_attr_val_table {
+	width:50%;
+	border-collapse: collapse;
+	border: 1px solid #ffeb02;
+	margin: 5px 0px;
+/*	margin: 0px auto;*/
+}
+
+div.registry_item table, div.registry_item tr, div.registry_item td {
+/*	border: 1px solid orange;*/
+}
+
+div.registry_item td {
+	overflow:hidden;
+	padding: 4px 8px;
+	font-size:0.8em;
+	line-height:1em;
+}
+
+td.attr_name {
+	text-align: right;
+}
+td.attr_value {
+	text-align: left;
+}
+
+tr.even {
+	background-color: #ffebcc;
+}
+
+td.col1 {
+	width:30%;
+}
+
+td.col2 {
+	width:70%;
 }

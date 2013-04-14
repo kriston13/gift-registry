@@ -8,13 +8,10 @@ require 'spec_helper'
 def log_in_with_user(user)
   visit root_path
   click_link "Log In"
-  # pp "================================"
-  # pp "email is: #{user.email}"
-  # pp "password is: #{user.password}"
   fill_in "Email", :with => user.email
   fill_in "Password", :with => user.password
-  #save_and_open_page
   click_button "Log In"
+  #save_and_open_page
   page.should have_content(user.firstname)
 end 
 

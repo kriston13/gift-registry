@@ -12,28 +12,34 @@
         <%= div_for(item) do%>
             <h3><%= item.name.titlecase %></h3>
             <p><%= item.description %></p>
+
+            <div class="item_tools">
+                <% if available_to_book? do %>
+                    <div>Book this item</div>
+                <% elsif booked? do %>
+                    <div>Booked until PLACEHOLDER DATE TIME</div>
+                <% elsif item.confirmed? do %>
+                    <div>Purchased</div>
+                <% else %>
+                    <div>Unavailable</div>
+                <% end %>
+            </div>
+
+            <% if item_attr_vals = item.item_attr_vals %>
+                 <table class="item_attr_val_table">
+                     <% format_attributes_for_listing(item_attr_vals).each_with_index do |fav, index| %>
+                        
+                        <%= content_tag :tr, :class => (index % 2 == 0 ? 'even': 'odd') do %>
+                            <td class="attr_name col1"><%= fav[:attr_description]%></td>
+                            <td class="attr_value col2"><%= fav[:attr_value]%></td>
+                        <% end %>
+                    <% end %>
+                </table>
+            <% end %>
             <% if is_owner? %>
-                <div class="owner_tools">
+                <div class="">
                     <%= link_to "edit", edit_registry_registry_item_path(@registry, item) %>, <%= link_to "delete", registry_registry_item_path(@registry, item), :confirm => "Are you sure you want to delete #{item.name} from this registry?", :method => :delete %>
                 </div>
-            <% end %>
-            
-            <% if false %>
-            <% if item_attr_vals = item.item_attr_vals %>
-                <ul class="item_attr_val_list">
-                    <% item_attr_vals.each do |iav| %>
-                        <li><%= iav.attr_name.description %>: <%= formatted_value(iav) %></li>
-                    <% end %>
-                </ul>
-            <% end %> 
-            <hr /> 
-            <% end%>
-            <% if item_attr_vals = item.item_attr_vals %>
-                 <ul class="item_attr_val_list">
-                     <% format_attributes_for_listing(item_attr_vals).each do |fav| %>
-                        <li><%= fav[:attr_description]%>: <%= fav[:attr_value]%></li>
-                    <% end %>
-                </ul>
             <% end %>
         <% end %>
     </li>
