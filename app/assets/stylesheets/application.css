@@ -21,12 +21,19 @@ body {
 }
 
 h1, h2, h3 {
-	font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
+/*	font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;*/
+	font-family: Impact, Charcoal, sans-serif;
 	margin:0px 0px 5px 0px;
 }
 
+h2 {
+	font-size: 34px;
+}
+
 h3 {
+	font-size: 20px;
 	font-family: Arial, Verdana, Helvetica, sans-serif;	
+	font-weight: bold;
 }
 
 h4 {
@@ -210,7 +217,7 @@ div.item_tools {
 	padding:3px;
 	font-size:14px;
 	line-height:1.2em;
-	width:140px;
+	width:170px;
 	background-color:#FC6;
 	border: 1px solid #F93;
 	text-align:center;
@@ -222,4 +229,16 @@ div.item_tools {
 	line-height:1.3em;
 }
 
+.purchased_link, .book_link {
+	font-size: 16px;
+	font-weight: bold;
+	line-height:1.3em;
+}
 
+.cancel_booking_link {
+	
+}
+
+div.registry_item {
+	min-height: 6.0em;
+}

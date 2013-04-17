@@ -13,3 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$.fn.preload = function() {
+    this.each(function(){
+        $('<img/>')[0].src = this;
+    });
+};
+
+// Usage:
+
+$(['/assets/ajax-loader.gif']).preload();
+
+

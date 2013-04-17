@@ -21,6 +21,20 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    @booking = Booking.find_by_id(params[:id])
+    if @booking.confirmed == true
+      @booking.confirmed = false
+    else
+      @booking.confirmed = true
+    end
+    @booking.save
+    respond_to do |format|
+      format.js
+    end
+  end
+
+
   private
 
     def available_to_book?

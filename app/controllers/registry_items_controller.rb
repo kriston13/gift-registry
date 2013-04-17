@@ -2,9 +2,6 @@ class RegistryItemsController < ApplicationController
   before_filter :get_registry
   before_filter :authorize
   
-  def show
-  end
-
   def new
     @item = @registry.registry_items.build()
     @item.item_attr_vals.build
@@ -39,7 +36,7 @@ class RegistryItemsController < ApplicationController
     end
   end
   
-  
+
 private
 
   def get_registry
