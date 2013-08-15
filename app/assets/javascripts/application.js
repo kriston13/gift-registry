@@ -22,6 +22,6 @@ $.fn.preload = function() {
 
 // Usage:
 
-$(['/assets/ajax-loader.gif']).preload();
+$(['/assets/ajax-loader.gif', '/assets/ajax-loader-tube.gif', '/assets/ajax-loader-bar.gif']).preload();
 
 

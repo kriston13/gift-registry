@@ -50,7 +50,7 @@ h2 span, h1 span {
 	padding: 0px;
 	background:#696969;
 	width:100%;
-	min-width:920px;
+	width:920px;
 	height:90px;
 }
 
@@ -154,7 +154,7 @@ ul#nav_bar li:first-child {
 
 #container {
 	background:#fff;
-	width:920px;
+	width:900px;
 	margin: 0px auto;
 /*	border: 1px dotted black;*/
 /*	padding: 0px 15px 0px 15px;*/
@@ -228,6 +228,12 @@ div.item_tools {
 	font-weight: bold;
 	line-height:1.3em;
 }
+
+.item_tools img {
+	margin: 0px;
+	padding: 0px;
+}
+
 
 .purchased_link, .book_link {
 	font-size: 16px;

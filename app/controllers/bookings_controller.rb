@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
   before_filter :get_registry_and_registry_items
 
   def create
+    #sleep(2.seconds)
     @booking = @registry_item.bookings.build
     @booking.user_id = current_user.id
     @booking.save
@@ -13,6 +14,7 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    #sleep(2.seconds)
     @booking = Booking.find_by_id(params[:id])
     @booking.destroy
     respond_to do |format|
