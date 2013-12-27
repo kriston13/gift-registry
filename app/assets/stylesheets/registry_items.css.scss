@@ -1,0 +1,119 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ */
+
+
+#registry_items_list {
+	list-style-type: none;
+	padding:0px;
+}
+
+div.registry_item {
+	position: relative;
+	margin-bottom: 5px;
+	padding:5px;
+	border-bottom: 1px solid #E6E6E6;
+/*	background-color: #FFEBCC;*/
+}
+
+ul#registry_items_list>li:first-of-type>div.registry_item {
+	border-top: 1px solid #E6E6E6;
+}
+
+div.registry_item .item_tools {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+}
+
+div.registry_item h3 {
+	margin: 0px;
+}
+
+div.registry_item p {
+	margin: 0px;
+}
+
+
+table.item_attr_val_table {
+	width:50%;
+	border-collapse: collapse;
+	border: 1px solid #ffeb02;
+	margin: 5px 0px;
+/*	margin: 0px auto;*/
+}
+
+div.registry_item table, div.registry_item tr, div.registry_item td {
+/*	border: 1px solid orange;*/
+}
+
+div.registry_item td {
+	overflow:hidden;
+	padding: 4px 8px;
+	font-size:0.8em;
+	line-height:1em;
+}
+
+td.attr_name {
+	text-align: right;
+}
+td.attr_value {
+	text-align: left;
+}
+
+tr.even {
+	background-color: #ffebcc;
+}
+
+td.col1 {
+	width:30%;
+}
+
+td.col2 {
+	width:70%;
+}
+
+
+div.item_tools {
+	display:block;
+	padding:3px;
+	font-size:14px;
+	line-height:1.2em;
+	width:170px;
+	background-color:$pale-orange;
+	border: 1px solid #F93;
+	text-align:center;
+
+	strong {
+		font-size: 16px;
+		font-weight: bold;
+		line-height:1.3em;
+	}
+
+	.item_tools img {
+		margin: 0px;
+		padding: 0px;
+	}	
+}
+
+.purchased_link, .book_link {
+	font-size: $font-normal;
+	font-weight: bold;
+	line-height: $font-normal;
+}
+
+.cancel_booking_link {
+	
+}
+
+div.registry_item {
+	min-height: 6.0em;
+}

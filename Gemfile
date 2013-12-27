@@ -61,5 +61,6 @@ group :test do
     gem 'debugger'
     gem 'capybara-screenshot'
     gem 'timecop'
+    gem 'selenium-webdriver'
 end
 
